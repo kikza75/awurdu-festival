@@ -400,8 +400,27 @@
                 alert(`උපරිම ඉසව් ${maxEvents} ක් පමණක් තෝරාගත හැකිය!`);
                 return;
             }
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
 
-            alert('ලියාපදිංචි වීම සාර්ථකයි! ස්තූතියි.');
+<script>
+  // Your Firebase configuration (replace with your actual config)
+  const firebaseConfig = {
+    apiKey: "AIzaSyABCD123...",
+    authDomain: "awurdu-registrations.firebaseapp.com",
+    databaseURL: "https://awurdu-registrations-default-rtdb.firebaseio.com",
+    projectId: "awurdu-registrations",
+    storageBucket: "awurdu-registrations.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abc123def456"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+</script>          
+    alert('ලියාපදිංචි වීම සාර්ථකයි! ස්තූතියි.');
             this.reset();
             document.querySelectorAll('.school-option').forEach(opt => opt.classList.remove('selected'));
         });
