@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>මලිදෙව් අවුරුදු උත්සවය 24</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@700&family=Noto+Sans+Sinhala:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --aw-red: #e30613;
+            --aw-yellow: #ffcc00;
+            --aw-green: #1a5f1a;
+            --aw-orange: #ff6600;
+            --aw-light: #fff9e6;
+        }
+
+        body {
+            font-family: 'Noto Sans Sinhala', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--aw-light);
+            background-image: 
+                url('IMG_5161.jpg'),
+                linear-gradient(rgba(255,249,230,0.9), rgba(255,249,230,0.9));
+            background-blend-mode: overlay;
+            background-size: 300px, auto;
+            background-position: center 50px, center;
+            background-repeat: no-repeat;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--aw-red), var(--aw-orange));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: 5px solid var(--aw-yellow);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,50 Q50,30 70,50 Q50,70 30,50" fill="none" stroke="white" stroke-width="0.5"/></svg>');
+            opacity: 0.1;
+        }
+
+        h1 {
+            font-family: 'Abhaya Libre', serif;
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid var(--aw-yellow);
+            position: relative;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, 
+                var(--aw-red), 
+                var(--aw-yellow), 
+                var(--aw-green), 
+                var(--aw-orange), 
+                var(--aw-red));
+        }
+
+        h2 {
+            font-family: 'Abhaya Libre', serif;
+            color: var(--aw-green);
+            border-bottom: 2px dashed var(--aw-orange);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .school-options {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .school-option {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem;
+            border: 2px solid var(--aw-yellow);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: rgba(255,255,240,0.7);
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .school-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .school-option.selected {
+            border-color: var(--aw-red);
+            background-color: rgba(227,6,19,0.1);
+            box-shadow: 0 0 0 3px rgba(227,6,19,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--aw-green);
+            font-size: 1.1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: rgba(255,255,240,0.7);
+            font-family: 'Noto Sans Sinhala', sans-serif;
+        }
+
+        input:focus {
+            border-color: var(--aw-orange);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,102,0,0.2);
+        }
+
+        button {
+            background: linear-gradient(to right, var(--aw-red), var(--aw-orange));
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1.5rem;
+            transition: all 0.3s;
+            font-family: 'Abhaya Libre', serif;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(227,6,19,0.3);
+        }
+
+        button::after {
+            content: "✿";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+        }
+
+        .event-option {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .event-option:hover {
+            background-color: rgba(255,204,0,0.1);
+        }
+
+        .event-option input {
+            width: 20px;
+            height: 20px;
+            margin-right: 1rem;
+            accent-color: var(--aw-red);
+        }
+
+        .event-option label {
+            margin: 0;
+            font-weight: normal;
+            flex: 1;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            border-top: 1px dashed var(--aw-yellow);
+        }
+
+        .selection-limit {
+            color: var(--aw-red);
+            font-style: italic;
+            margin: -0.5rem 0 1rem 0;
+            text-align: right;
+        }
+
+        @media (max-width: 600px) {
+            .school-options {
+                flex-direction: column;
+            }
+            .school-option {
+                min-width: 100%;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>මලිදෙව් අවුරුදු උත්සවය 24</h1>
+    </header>
+
+    <div class="container">
+        <form id="registrationForm">
+            <div class="school-options">
+                <label class="school-option" onclick="selectSchool('college')">
+                    <input type="radio" name="school" value="Maliyadeva College" required>
+                    මාලියදේව විද්‍යාලය
+                </label>
+                <label class="school-option" onclick="selectSchool('balika')">
+                    <input type="radio" name="school" value="Maliyadeva Balika Vidyalaya" required>
+                    මාලියදේව බාලිකා විද්‍යාලය
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="fullName">සම්පූර්ණ නම:</label>
+                <input type="text" id="fullName" required placeholder="ඔබේ සම්පූර්ණ නම ඇතුළත් කරන්න">
+            </div>
+
+            <div class="form-group">
+                <label for="idNumber">පාසල් අංකය / හැඳුනුම්පත් අංකය:</label>
+                <input type="text" id="idNumber" required placeholder="පාසල් අංකය හෝ ජාතික හැඳුනුම්පත් අංකය ඇතුළත් කරන්න">
+            </div>
+
+            <h2>සහභාගි වන ඉසව්</h2>
+            <p class="selection-limit">(උපරිම ඉසව් 3 ක් පමණක් තෝරාගත හැකිය)</p>
+            
+            <!-- All 15 AWURDU Events -->
+            <div class="event-option">
+                <input type="checkbox" id="event1" class="event-checkbox" value="කොට්ටා පොර">
+                <label for="event1">1. කොට්ටා පොර</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event2" class="event-checkbox" value="කනාමුට්ටි">
+                <label for="event2">2. කනාමුට්ටි</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event3" class="event-checkbox" value="පැණි බබරේ">
+                <label for="event3">3. පැණි බබරේ</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event4" class="event-checkbox" value="කබ ඇදීම">
+                <label for="event4">4. කබ ඇදීම</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event5" class="event-checkbox" value="තුන්පා">
+                <label for="event5">5. තුන්පා-</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event6" class="event-checkbox" value="ගස්ලබු ගෙඩිය">
+                <label for="event6">6. ගස්ලබු ගෙඩිය</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event7" class="event-checkbox" value="බැලුම් ඇල්ලීම">
+                <label for="event7">7. බැලුම් ඇල්ලීම</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event8" class="event-checkbox" value="බැලුම් ඩාන්ස්">
+                <label for="event8">8. බැලුම් ඩාන්ස්</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event9" class="event-checkbox" value="සංගීත තොප්පි">
+                <label for="event9">9. සංගීත තොප්පි-</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event10" class="event-checkbox" value="දෙහි ගෙඩියයි හැන්දයි">
+                <label for="event10">10. දෙහි ගෙඩියයි හැන්දයි-</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event11" class="event-checkbox" value="අන්දයාට කිරි කැවීම">
+                <label for="event11">11. අන්දයාට කිරි කැවීම-</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event12" class="event-checkbox" value="පිටි ගොඩේ කාසිය සෙවීම">
+                <label for="event12">12. පිටි ගොඩේ කාසිය සෙවීම-</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event13" class="event-checkbox" value="අලියට ඇහැ තැබීම">
+                <label for="event13">13. අලියට ඇහැ තැබීම -</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event14" class="event-checkbox" value="අවුරුදු කුමරා/කුමරිය">
+                <label for="event14">14. අවුරුදු කුමරා/කුමරිය-</label>
+            </div>
+            <div class="event-option">
+                <input type="checkbox" id="event15" class="event-checkbox" value="හොදම ඇඩීම/හිනාව">
+                <label for="event15">15. හොදම ඇඩීම/හිනාව-</label>
+            </div>
+
+            <button type="submit">ලියාපදිංචි කරන්න</button>
+        </form>
+    </div>
+
+    <footer>
+        මලිදෙව් අවුරුදු උත්සව කමිටුව 24
+    </footer>
+
+    <script>
+        // School Selection
+        function selectSchool(type) {
+            document.querySelectorAll('.school-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+        }
+
+        // Event Selection Limit (3 events)
+        const checkboxes = document.querySelectorAll('.event-checkbox');
+        const maxEvents = 3;
+        
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const checked = document.querySelectorAll('.event-checkbox:checked');
+                if (checked.length > maxEvents) {
+                    checkbox.checked = false;
+                    alert(`උපරිම ඉසව් ${maxEvents} ක් පමණක් තෝරාගත හැකිය!`);
+                }
+            });
+        });
+
+        // Form Submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate school selection
+            if (!document.querySelector('input[name="school"]:checked')) {
+                alert('කරුණාකර ඔබේ පාසල තෝරන්න!');
+                return;
+            }
+
+            // Validate ID number
+            const idNumber = document.getElementById('idNumber').value.trim();
+            if (!idNumber) {
+                alert('කරුණාකර ඔබේ පාසල් අංකය හෝ හැඳුනුම්පත් අංකය ඇතුළත් කරන්න!');
+                return;
+            }
+
+            // Validate events
+            const checkedEvents = document.querySelectorAll('.event-checkbox:checked');
+            if (checkedEvents.length === 0) {
+                alert('කරුණාකර අවම වශයෙන් එක් ඉසව්වක්වත් තෝරන්න!');
+                return;
+            }
+            if (checkedEvents.length > maxEvents) {
+                alert(`උපරිම ඉසව් ${maxEvents} ක් පමණක් තෝරාගත හැකිය!`);
+                return;
+            }
+
+            alert('ලියාපදිංචි වීම සාර්ථකයි! ස්තූතියි.');
+            this.reset();
+            document.querySelectorAll('.school-option').forEach(opt => opt.classList.remove('selected'));
+        });
+    </script>
+</body>
+</html>
